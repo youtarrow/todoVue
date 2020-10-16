@@ -1,0 +1,28 @@
+body {
+  font-size: 16px;
+}
+
+.kv {
+  &__inner {
+    background: url(../images/kv_image.jpg) no-repeat center;
+    background-size: cover;
+    padding: 30px;
+    .title {
+      &--option {
+        font-size: 28px;
+        color: white;
+      }
+    }
+  }
+}
+
+.wrap {
+  margin-bottom: 50px;
+}
+
+footer {
+  background-color: black;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}

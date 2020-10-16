@@ -3,7 +3,7 @@
     <Header />
     <div class="kv">
       <div class="kv__inner d-flex justify-content-center align-items-center">
-        <h2 class="title title--option">todoVue</h2>
+        <h2 class="title title--option">PORTFOLIO</h2>
       </div>
     </div>
     <div class="wrap"></div>
