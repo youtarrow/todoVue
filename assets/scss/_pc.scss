@@ -6,7 +6,7 @@ body {
   &__inner {
     background: url(../images/kv_image.jpg) no-repeat center;
     background-size: cover;
-    padding: 30px;
+    padding: 60px 20px;
     .title {
       &--option {
         font-size: 28px;
@@ -25,4 +25,77 @@ footer {
   padding: 20px;
   text-align: center;
   color: white;
+}
+
+section {
+  h2 {
+    text-align: center;
+    margin: 50px 0 30px;
+  }
+}
+
+.todoArea {
+  border: 2px solid gray;
+  padding: 30px;
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__addtask {
+    margin-bottom: 30px;
+    &--option {
+      input[type='text'] {
+        font-size: 20px;
+        width: 100%;
+      }
+    }
+  }
+  &__input {
+    width: 350px;
+  }
+  &__calendar {
+    width: 200px;
+    margin-left: 20px;
+  }
+  &__button {
+    margin-top: 20px;
+    button {
+      border: 1px solid black;
+      padding: 10px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  &__list {
+    &--option {
+      font-size: 20px;
+    }
+    .listItem {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid gray;
+      border-radius: 4px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .period {
+        display: block;
+        margin-top: 5px;
+        &--option {
+          font-size: 16px;
+        }
+      }
+      .delete {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 100%;
+        text-align: center;
+        line-height: 0.7;
+        padding: 5px;
+        color: black;
+        cursor: pointer;
+      }
+    }
+  }
 }
