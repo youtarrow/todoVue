@@ -1,15 +1,12 @@
 <template>
-  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8" @submit.prevent>
-    <div class="mb-4">
-      <span class="block text-gray-600 text-sm text-left font-bold mb-2"
-        >Select Range</span
-      >
+  <form class="" @submit.prevent>
+    <div class="v-calendar">
       <v-date-picker v-model="range" mode="dateTime" :masks="masks" is-range>
         <template v-slot="{ inputValue, inputEvents, isDragging }">
-          <div class="flex flex-col sm:flex-row justify-start items-center">
-            <div class="relative flex-grow">
+          <div class="d-flex v-calendar__inputArea">
+            <div class="itemeBox relative d-flex align-items-center">
               <svg
-                class="text-gray-600 w-4 h-full mx-2 absolute pointer-events-none"
+                class=""
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -22,28 +19,20 @@
                 ></path>
               </svg>
               <input
-                class="flex-grow pl-8 pr-2 py-1 bg-gray-100 border rounded w-full"
+                class=""
                 :class="isDragging ? 'text-gray-600' : 'text-gray-900'"
                 :value="inputValue.start"
                 v-on="inputEvents.start"
               />
             </div>
-            <span class="flex-shrink-0 m-2">
-              <svg
-                class="w-4 h-4 stroke-current text-gray-600"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
+            <span
+              class="itemeBox d-flex justify-content-center align-items-center"
+            >
+              →
             </span>
-            <div class="relative flex-grow">
+            <div class="itemeBox relative d-flex align-items-center">
               <svg
-                class="text-gray-600 w-4 h-full mx-2 absolute pointer-events-none"
+                class=""
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -56,7 +45,7 @@
                 ></path>
               </svg>
               <input
-                class="flex-grow pl-8 pr-2 py-1 bg-gray-100 border rounded w-full"
+                class=""
                 :class="isDragging ? 'text-gray-600' : 'text-gray-900'"
                 :value="inputValue.end"
                 v-on="inputEvents.end"
@@ -70,12 +59,21 @@
 </template>
 
 <script>
+const now = new Date()
+// eslint-disable-next-line no-unused-vars
+const year = now.getFullYear()
+// eslint-disable-next-line no-unused-vars
+const months = now.getMonth()
+// eslint-disable-next-line no-unused-vars
+const date = now.getDate()
+const today = new Date(year, months, date)
+
 export default {
   data() {
     return {
       range: {
-        start: new Date(2020, 0, 6),
-        end: new Date(2020, 0, 23),
+        start: today,
+        end: today,
       },
       masks: {
         input: 'YYYY-MM-DD h:mm A',
@@ -84,3 +82,30 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.v-calendar {
+  &__inputArea {
+    .itemeBox {
+      &:nth-child(1),
+      &:nth-child(3) {
+        width: auto;
+        svg {
+          position: absolute;
+          left: 4px;
+          width: 30px;
+        }
+      }
+      &:nth-child(2) {
+        width: 7%;
+        font-size: 25px;
+      }
+      input {
+        border: 1px solid gray;
+        padding: 10px 10px 10px 50px;
+        width: 100%;
+      }
+    }
+  }
+}
+</style>
