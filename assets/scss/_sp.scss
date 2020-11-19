@@ -1,5 +1,5 @@
-@media only screen and (max-width: 600px) {
-    .test {
-        font-size: 20px;
-    }
+@include mq() {
+  body {
+    font-size: vwSp(14);
+  }
 }

@@ -17,7 +17,7 @@ export default {
   css: ['~/assets/scss/style.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: '~plugins/v-calendar.js', ssr: false }],
+  plugins: [{ src: '~/plugins/v-calendar.js', mode: 'client', ssr: false }],
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
@@ -25,6 +25,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/moment',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -37,7 +38,21 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extend(config) {
+      const path = require('path')
+      config.resolve.alias['@components'] = path.join(__dirname, 'components')
+      config.resolve.alias['@store'] = path.join(__dirname, 'store')
+    },
+  },
   // Images
   images: ['~/assets/images/'],
+  // console.log
+  rules: {
+    'no-console': 0,
+  },
+  // 日付表示プラグイン設定
+  moment: {
+    locales: ['ja'],
+  },
 }

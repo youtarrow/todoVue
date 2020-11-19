@@ -1,3 +1,23 @@
+$breakpoints: (
+  'sp': 'screen and (max-width: 600px)',
+  'tab': 'screen and (max-width: 900px)',
+  'pc': 'screen and (min-width: 901px)',
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints,$breakpoint)} {
+    @content;
+  }
+}
+
+@function vwTab($val) {
+  @return ($val / 959) * 100vw;
+}
+
+@function vwSp($val) {
+  @return ($val / 375) * 100vw;
+}
+
 .d-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,7 +53,7 @@
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
 
 h1 {
